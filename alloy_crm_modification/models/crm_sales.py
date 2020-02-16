@@ -14,7 +14,6 @@ class CrmLead(models.Model):
     is_insured = fields.Boolean(string="insured")
     is_company = fields.Boolean(compute='get_type_of_partner_id')
     claim_number = fields.Char(string="Claim #")
-    # crm_source_id = fields.Many2one(comodel_name="sale.order.source", string="source",)
     city_id = fields.Many2one('res.city', 'City')
 
     @api.depends('partner_id')
