@@ -11,7 +11,7 @@ class SaleOrderSource(models.Model):
 class SaleOrder(models.Model):
     _inherit = "sale.order"
 
-    # x_studio_source_2 = fields.Many2one("sale.order.source", 'Source')
+    x_studio_source_2 = fields.Many2one("sale.order.source", 'test')
     is_individual = fields.Boolean(compute="_compute_is_individual", store=True)
 
     @api.depends('partner_id')
