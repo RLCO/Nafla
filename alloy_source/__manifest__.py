@@ -11,6 +11,6 @@
     'data': [
         # 'security/security.xml',
         'security/ir.model.access.csv',
-        'views/source_sales.xml',
+        # 'views/source_sales.xml',
     ],
 }
