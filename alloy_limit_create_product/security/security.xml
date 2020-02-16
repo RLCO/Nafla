@@ -1,0 +1,17 @@
+<odoo>
+    <data>
+
+        <record id="limit_create_product" model="res.groups">
+            <field name="name">Limit create product</field>
+        </record>
+
+        <record id="limit_create_customer" model="res.groups">
+            <field name="name">Limit create customer</field>
+        </record>
+
+        <record id="limit_create_crm_tag" model="res.groups">
+            <field name="name">Limit create crm tag</field>
+        </record>
+
+    </data>
+</odoo>

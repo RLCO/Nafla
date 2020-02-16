@@ -1,0 +1,22 @@
+<odoo>
+    <data>
+
+        <record id="product_product_tree_view_inherit" model="ir.ui.view">
+            <field name="name">product.product</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_product_tree_view"/>
+            <field name="priority" eval="99"/>
+            <field name="groups_id"
+               eval="[(4, ref('alloy_limit_create_product.limit_create_product'))]"/>
+            <field name="arch" type="xml">
+                <xpath expr="//tree" position="attributes">
+                    <attribute name="create">false</attribute>
+                    <attribute name="edit">false</attribute>
+                    <attribute name="import">false</attribute>
+                </xpath>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

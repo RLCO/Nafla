@@ -15,5 +15,6 @@
         'security/security.xml',
         'security/ir.model.access.csv',
         'views/crm_view.xml',
+        'views/sale_order_view.xml',
     ],
 }

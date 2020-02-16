@@ -14,7 +14,7 @@ class CrmLead(models.Model):
     is_insured = fields.Boolean(string="insured")
     is_company = fields.Boolean(compute='get_type_of_partner_id')
     claim_number = fields.Char(string="Claim #")
-    crm_source_id = fields.Many2one(comodel_name="sale.order.source", string="source",)
+    # crm_source_id = fields.Many2one(comodel_name="sale.order.source", string="source",)
     city_id = fields.Many2one('res.city', 'City')
 
     @api.depends('partner_id')
@@ -42,7 +42,7 @@ class CrmLead(models.Model):
               'medium_id': self.medium_id.id,
               'opportunity_id': self.id,
               'origin': self.name,
-              'x_studio_source_2': self.crm_source_id.id,
+              'source_id': self.source_id.id,
               'x_studio_field_icWOZ': self.agency_location_id.id,
               'vehicle': self.car_type_id.id,
               'is_insured': self.is_insured,

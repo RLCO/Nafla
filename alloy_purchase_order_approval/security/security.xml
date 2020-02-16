@@ -8,8 +8,8 @@
             <field name="name">View purchase leader button</field>
         </record>
 
-        <record id="group_view_purchase_ceo_button" model="res.groups">
-            <field name="name">View purchase ceo button</field>
-        </record>
+        <!--<record id="group_view_purchase_ceo_button" model="res.groups">-->
+            <!--<field name="name">View purchase ceo button</field>-->
+        <!--</record>-->
     </data>
 </odoo>

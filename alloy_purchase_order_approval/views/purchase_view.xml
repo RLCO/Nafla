@@ -49,27 +49,27 @@
             <field name="arch" type="xml">
 
                 <xpath expr="//header" position="inside">
-                    <button string="Manager Approve" name="manager_approve"
-                            type="object" class="oe_highlight"
-                            groups="alloy_purchase_order_approval.group_view_purchase_manager_button"
-                            attrs="{'invisible':[('state','in',['purchase','done','cancel'])]}"
-                            />
                     <button string="Leader Approve" name="leader_approve"
                             type="object" class="oe_highlight"
                             groups="alloy_purchase_order_approval.group_view_purchase_leader_button"
                             attrs="{'invisible':[('state','in',['purchase','done','cancel'])]}"
                             />
-                    <button string="CEO Approve" name="ceo_approve"
+                    <button string="Manager Approve" name="manager_approve"
                             type="object" class="oe_highlight"
-                            groups="alloy_purchase_order_approval.group_view_purchase_ceo_button"
+                            groups="alloy_purchase_order_approval.group_view_purchase_manager_button"
                             attrs="{'invisible':[('state','in',['purchase','done','cancel'])]}"
                             />
+                    <!--<button string="CEO Approve" name="ceo_approve"-->
+                            <!--type="object" class="oe_highlight"-->
+                            <!--groups="alloy_purchase_order_approval.group_view_purchase_ceo_button"-->
+                            <!--attrs="{'invisible':[('state','in',['purchase','done','cancel'])]}"-->
+                            <!--/>-->
                 </xpath>
 
                 <xpath expr="//field[@name='date_order']" position="after">
-                    <field name="is_manager" invisible="1"/>
                     <field name="is_leader" invisible="1"/>
-                    <field name="is_ceo" invisible="1"/>
+                    <field name="is_manager" invisible="1"/>
+                    <!--<field name="is_ceo" invisible="1"/>-->
                     <field name="maximum_amount" />
                 </xpath>
 

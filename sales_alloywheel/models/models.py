@@ -15,19 +15,19 @@ class AccountInvoice(models.Model):
                 self.source = sale_id.source
 
 
-class SaleOrder(models.Model):
-    _inherit = 'sale.order'
-    source = fields.Char()
-    is_person = fields.Boolean(compute="get_source_type")
-
-    @api.depends('partner_id')
-    def get_source_type(self):
-        if self.partner_id:
-            for record in self:
-                if record.partner_id.company_type == 'person':
-                    record.is_person = True
-                else:
-                    record.is_person = False
+# class SaleOrder(models.Model):
+#     _inherit = 'sale.order'
+#     source = fields.Char()
+#     is_person = fields.Boolean(compute="get_source_type")
+#
+#     @api.depends('partner_id')
+#     def get_source_type(self):
+#         if self.partner_id:
+#             for record in self:
+#                 if record.partner_id.company_type == 'person':
+#                     record.is_person = True
+#                 else:
+#                     record.is_person = False
 
 
 class ProductTemplate(models.Model):

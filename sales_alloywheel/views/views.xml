@@ -64,10 +64,10 @@
                 <xpath expr="//field[@name='partner_id']" position="attributes">
                     <attribute name="options">{'no_create': True}</attribute>
                 </xpath>
-                <xpath expr="//field[@name='partner_id']" position="after">
-                    <field name="is_person" invisible="1"/>
-                    <field name="source" attrs="{'required':[('is_person','=',True)]}" />
-                </xpath>
+                <!--<xpath expr="//field[@name='partner_id']" position="after">-->
+                    <!--<field name="is_person" invisible="1"/>-->
+                    <!--<field name="source" attrs="{'required':[('is_person','=',True)]}" />-->
+                <!--</xpath>-->
                 <!--<xpath expr="//field[@name='order_line']" position="attributes">-->
                     <!--<attribute name="attrs">{'readonly': [('state', 'in', ('sale','done','cancel'))]}</attribute>-->
                 <!--</xpath>-->
