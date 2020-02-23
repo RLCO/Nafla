@@ -485,7 +485,7 @@ class InheritSale(models.Model):
         })
         if self.project:
             stage_id = 1
-            stage = self.env['project.task.type'].search([('name', '=', 'New')], limit=1)
+            stage = self.env['project.task.type'].search([('name', '=', 'In Route')], limit=1)
             if stage:
                 stage_id = stage.id
             #             task = self.env['project.task'].create(
