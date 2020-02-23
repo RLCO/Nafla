@@ -11,4 +11,10 @@
         </field>
     </record>
 
+    <template id="sale_report" inherit_id="sale.report_saleorder_document">
+        <xpath expr="//div[@name='signature']" position="after">
+            <img style="width:15%;height:100px;float:right;" src="/alloy_crm_lost_reason/static/src/img/index_alloy.jpeg" />
+        </xpath>
+    </template>
+
 </odoo>
