@@ -90,12 +90,34 @@
             <field name="name">purchase.order.form</field>
             <field name="model">purchase.order</field>
             <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="priority" eval="99"/>
+            <field name="groups_id"
+               eval="[(4, ref('sales_alloywheel.limit_modify_order_line'))]"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='order_line']" position="attributes">
                     <attribute name="attrs">{'readonly': [('state', 'in', ('purchase','done','cancel'))]}</attribute>
                 </xpath>
             </field>
         </record>
+
+
+         <record id="view_sale_order_form_inherit2" model="ir.ui.view">
+            <field name="name">sale.order.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="priority" eval="99"/>
+            <field name="groups_id"
+               eval="[(4, ref('sales_alloywheel.limit_modify_order_line'))]"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='order_line']" position="attributes">
+                    <attribute name="attrs">{'readonly': [('state', 'in', ('sale','done','cancel'))]}</attribute>
+                </xpath>
+
+            </field>
+        </record>
+
+
 
     </data>
 </odoo>
