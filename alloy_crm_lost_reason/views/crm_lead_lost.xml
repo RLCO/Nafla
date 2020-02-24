@@ -222,11 +222,11 @@
                   <div style="overflow:hidden">
                     <div class="left" style="float: left;white-space: nowrap;">
                         <span>Agency Location:</span>
-                        <span t-esc="doc.x_studio_field_icWOZ"/>
+                        <span t-esc="doc.x_studio_field_icWOZ.name"/>
 
                     </div>
                     <div class="right" style="float: right;white-space: nowrap;">
-                        <span  t-esc="doc.x_studio_field_icWOZ"/>
+                        <span  t-esc="doc.x_studio_field_icWOZ.name"/>
                         <span >:موقع الوكالة</span>
 
                     </div>
