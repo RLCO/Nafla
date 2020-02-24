@@ -12,8 +12,449 @@
     </record>
 
     <template id="sale_report" inherit_id="sale.report_saleorder_document">
+        <xpath expr="//div[hasclass('page')]//h2" position="replace" />
+
+        <xpath expr="//div[hasclass('mb32')]" position="replace">
+            <!--<h>jjjjjjjjjjjjjjj</h>-->
+
+            <!--<t t-if="not (env.context.get('proforma', False) or is_pro_forma)">-->
+                    <!--<span t-if="doc.state not in ['draft','sent']">Order # </span>-->
+                    <!--<span t-if="doc.state in ['draft','sent']">Quotation # </span>-->
+                <!--</t>-->
+                <!--<t t-if="env.context.get('proforma', False) or is_pro_forma">-->
+                    <!--<span>Pro-Forma Invoice # </span>-->
+                <!--</t>-->
+                <!--<span t-field="doc.name"/>-->
+
+                        <div style="overflow:hidden">
+
+                            <div class="left" style="float: left;white-space: nowrap;text align:center">
+                                <t t-if="not (env.context.get('proforma', False) or is_pro_forma)">
+                                     <span t-if="doc.state not in ['draft','sent']">Order # </span>
+                                     <span t-if="doc.state in ['draft','sent']">Quotation # </span>
+                                    <span t-esc="doc.name"/>
+                                </t>
+                                <t t-if="env.context.get('proforma', False) or is_pro_forma">
+                                    <span>Pro-Forma Invoice # </span>
+                                    <span t-esc="doc.name"/>
+                                </t>
+
+                            </div>
+
+                        </div>
+
+                        <div style="overflow:hidden">
+
+                            <div class="left" style="float: left;white-space: nowrap;text align:center">
+                                <span>Customer Name:</span>
+                                <span t-esc="doc.partner_id.name"/>
+
+                            </div>
+                             <div class="right" style="float: right;white-space: nowrap;">
+                                <span  t-esc="doc.partner_id.customer_arabic_name"/>
+                                 <span >اسم ‫العميل‬: ‫‬</span>
+
+                            </div>
+
+                        </div>
+
+                        <div style="overflow:hidden">
+
+                            <div class="left" style="float: left;white-space: nowrap;">
+                                <span>Customer code:</span>
+                                <span t-esc="doc.partner_id.customer_code"/>
+
+                            </div>
+                             <div class="right" style="float: right;white-space: nowrap;">
+                                <span t-esc="doc.partner_id.customer_code"/>
+                                 <span >رقم العميل:‫‬</span>
+
+                            </div>
+                        </div>
+
+
+                        <!--<div style="overflow:hidden">-->
+
+                        <!--    <div class="left" style="float: left;white-space: nowrap;">-->
+                        <!--        <span style="font-weight:bold;">Address:</span>-->
+                        <!--        <span t-esc="doc.partner_id.street"/>-->
+
+                        <!--    </div>-->
+                        <!--     <div class="right" style="float: right;white-space: nowrap;">-->
+                        <!--        <span style="font-weight:bold;" t-esc="doc.partner_id.street1_arbi"/>-->
+                        <!--         <span style="font-weight:bold;">العنوان:‫‬</span>-->
+
+                        <!--    </div>-->
+                        <!--</div>-->
+               <t t-if="doc.partner_id.mobile">
+                   <div style="overflow:hidden">
+                      <div class="left" style="float: left;white-space: nowrap;text align:center">
+                                <span>Mobile:</span>
+                                <span t-esc="doc.partner_id.mobile"/>
+
+                            </div>
+                            <div class="right" style="float: right;white-space: nowrap;">
+                                <span t-esc="doc.partner_id.mobile"/>
+                                <span>التليفون المحمول: ‫‬</span>
+
+                            </div>
+                        </div>
+               </t>
+               <t t-if="doc.partner_id.email">
+                 <div style="overflow:hidden">
+                    <div class="left" style="float: left;white-space: nowrap;text align:center">
+                       <span>
+                         Emails:
+                       </span>
+                       <span t-esc="doc.partner_id.email"/>
+                    </div>
+                    <div class="right" style="float: right;white-space: nowrap;">
+                        <span t-esc="doc.partner_id.email"/>
+                        <span>البريد الإلكتروني ‬: ‫‬</span>
+                    </div>
+                  </div>
+                 </t>
+                 <t t-if="doc.partner_id.vat">
+                     <div style="overflow:hidden">
+
+                            <div class="left" style="float: left;white-space: nowrap;">
+                                <span>Vat:</span>
+                                <span t-esc="doc.partner_id.vat"/>
+
+                            </div>
+                            <div class="right" style="float: right;white-space: nowrap;">
+                                <span t-esc="doc.partner_id.vat"/>
+                                <span>  ‫الرقم‬ ‫الضريبي‬ :‬ ‫‬</span>
+
+                            </div>
+                        </div>
+                 </t>
+                 <t t-if="doc.partner_id.street">
+                     <div style="overflow:hidden">
+
+                            <div class="left" style="float: left;white-space: nowrap;">
+                                <span>Address :</span>
+                                <span t-esc="doc.partner_id.street"/>
+
+                            </div>
+                            <div class="right" style="float: right;white-space: nowrap;">
+                                <span t-esc="doc.partner_id.street1_arbi"/>
+                                <span >  ‫عنوان‬ :‫‬</span>
+
+                            </div>
+                        </div>
+                 </t>
+                 <t t-if="doc.partner_id.street2">
+                      <div style="overflow:hidden">
+
+                            <div class="left" style="float: left;white-space: nowrap;">
+                                <span>Address:</span>
+                                <span t-esc="doc.partner_id.street2"/>
+
+                            </div>
+                            <div class="right" style="float: right;white-space: nowrap;">
+                                <span  t-esc="doc.partner_id.street2_arbi"/>
+                                <span >  ‫عنوان‬ :‫‬</span>
+
+                            </div>
+                        </div>
+                 </t>
+            <!--dir="ltr" class='table table-bordered' style="float:left; border-color:#000000 "-->
+            <!--<table  width="100%">-->
+                <!--&lt;!&ndash;<t t-if="doc.client_order_ref" class="col-auto mw-100 mb-2">&ndash;&gt;-->
+                 <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<td colspan="2"><h3>code #</h3></td>&ndash;&gt;-->
+                     <!--&lt;!&ndash;<td colspan="2">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<span t-field="o.code"/>&ndash;&gt;-->
+                     <!--&lt;!&ndash;</td>&ndash;&gt;-->
+                 <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+                <!--&lt;!&ndash;</t>&ndash;&gt;-->
+
+                     <!--<tr>-->
+                         <!--<t t-if="doc.confirmation_date and doc.state not in ['draft','sent']" class="col-auto mw-100 mb-2">-->
+                             <!--<td style="width=100;text-align: center;">Date Ordered:</td>-->
+                             <!--<td  style="width=100;text-align: center;"><span t-field="doc.confirmation_date"/></td>-->
+                         <!--</t>-->
+                         <!--<t t-if="doc.date_order and doc.state in ['draft','sent']" class="col-auto mw-100 mb-2">-->
+                             <!--<td style="width=200;text-align: center;">Salesperson:</td>-->
+                             <!--<td style="width=200;text-align: center;"><span t-field="doc.user_id"/></td>-->
+                         <!--</t>-->
+
+                     <!--</tr>-->
+
+                 <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<td style="width=100;text-align: center;">End Date</td>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<td  style="width=100;text-align: center;"><span t-field="o.end_start"/></td >&ndash;&gt;-->
+                    <!--&lt;!&ndash;<td style="width=200;text-align: center;">Requested By</td>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<td  style="width=200;text-align: center;"><span t-field="o.requested_by.name"/></td>&ndash;&gt;-->
+                 <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+             <!--</table>-->
+
+            <!--<div>-->
+                <!--<t t-if="doc.client_order_ref" class="col-auto mw-100 mb-2">-->
+                    <!--<strong>Your Reference:</strong>-->
+                    <!--<p class="m-0" t-field="doc.client_order_ref"/>-->
+                <!--</t>-->
+                <!-- -->
+                <!--<t t-if="doc.confirmation_date and doc.state not in ['draft','sent']" class="col-auto mw-100 mb-2">-->
+                    <!--<strong>Date Ordered:</strong>-->
+                    <!--<p class="m-0" t-field="doc.confirmation_date"/>-->
+                <!--</t>-->
+                <!--<t t-if="doc.date_order and doc.state in ['draft','sent']" class="col-auto mw-100 mb-2">-->
+                    <!--<strong>Quotation Date:</strong>-->
+                    <!--<p class="m-0" t-field="doc.date_order"/>-->
+                <!--</t>-->
+                <!--<t t-if="doc.user_id.name" class="col-auto mw-100 mb-2">-->
+                    <!--<strong>Salesperson:</strong>-->
+                    <!--<p class="m-0" t-field="doc.user_id"/>-->
+                <!--</t>-->
+                <!--<t name="payment_term" t-if="doc.payment_term_id" class="col-auto mw-100 mb-2">-->
+                    <!--<strong>Payment Terms:</strong>-->
+                    <!--<p class="m-0" t-field="doc.payment_term_id"/>-->
+                <!--</t>-->
+                <!--<t t-if="doc.validity_date and doc.state in ['draft', 'sent']" class="col-auto mw-100 mb-2">-->
+                    <!--<strong>Expiration Date:</strong>-->
+                    <!--<p class="m-0" t-field="doc.validity_date"/>-->
+                <!--</t>-->
+            <!--</div>-->
+
+             <t t-if="doc.x_studio_field_icWOZ">
+                  <div style="overflow:hidden">
+                    <div class="left" style="float: left;white-space: nowrap;">
+                        <span>Agency Location:</span>
+                        <span t-esc="doc.x_studio_field_icWOZ"/>
+
+                    </div>
+                    <div class="right" style="float: right;white-space: nowrap;">
+                        <span  t-esc="doc.x_studio_field_icWOZ"/>
+                        <span >:موقع الوكالة</span>
+
+                    </div>
+                  </div>
+             </t>
+
+
+              <t t-if="doc.vehicle.model_id.brand_id.name">
+                  <div style="overflow:hidden">
+                    <div class="left" style="float: left;white-space: nowrap;">
+                        <span>Car Type:</span>
+                        <span t-esc="doc.vehicle.model_id.brand_id.name"/>
+
+                    </div>
+                    <div class="right" style="float: right;white-space: nowrap;">
+                        <span  t-esc="doc.vehicle.model_id.brand_id.name"/>
+                        <span >:نوع السيارة</span>
+
+                    </div>
+                  </div>
+              </t>
+
+
+              <t t-if="doc.vehicle.license_plate">
+                  <div style="overflow:hidden">
+                    <div class="left" style="float: left;white-space: nowrap;">
+                        <span>Plate #:</span>
+                        <span t-esc="doc.vehicle.license_plate"/>
+
+                    </div>
+                    <div class="right" style="float: right;white-space: nowrap;">
+                        <span  t-esc="doc.vehicle.license_plate"/>
+                        <span > :رقم اللوحة </span>
+
+                    </div>
+                  </div>
+              </t>
+
+
+              <t t-if="doc.claim_no">
+                  <div style="overflow:hidden">
+                    <div class="left" style="float: left;white-space: nowrap;">
+                        <span>Claim#</span>
+                        <span t-esc="doc.claim_no"/>
+
+                    </div>
+                    <div class="right" style="float: right;white-space: nowrap;">
+                        <span  t-esc="doc.claim_no"/>
+                        <span >رقم المطالبة  </span>
+
+                    </div>
+                  </div>
+              </t>
+
+
+              <t t-if="doc.service_advisor">
+                  <div style="overflow:hidden">
+                    <div class="left" style="float: left;white-space: nowrap;">
+                        <span>Service Advisor</span>
+                        <span t-esc="doc.service_advisor"/>
+
+                    </div>
+                    <div class="right" style="float: right;white-space: nowrap;">
+                        <span  t-esc="doc.service_advisor"/>
+                        <span > اسم المشرف  </span>
+
+                    </div>
+                  </div>
+              </t>
+
+
+              <t t-if="doc.service_advisor">
+                  <div style="overflow:hidden">
+                    <div class="left" style="float: left;white-space: nowrap;">
+                        <span>Service Advisor</span>
+                        <span t-esc="doc.service_advisor"/>
+
+                    </div>
+                    <div class="right" style="float: right;white-space: nowrap;">
+                        <span  t-esc="doc.service_advisor"/>
+                        <span > اسم المشرف  </span>
+
+                    </div>
+                  </div>
+              </t>
+
+
+              <!--<table style="border-collapse: collapse; border: none;">-->
+                   <!--<t t-if="doc.x_studio_field_icWOZ">-->
+                       <!--<tr style="border: none;">-->
+
+                          <!--<td style="border: none;padding:5px 5px" width="300px">-->
+                             <!--<div class="left" style="float: left;white-space: nowrap;">-->
+                                    <!--<span >Agency Location:</span>-->
+
+
+                                <!--</div>-->
+                          <!--</td>-->
+                          <!--<td style="border: none;padding:5px 5px" width="800px">-->
+                            <!--<span style="padding-left:5px;" t-esc="doc.x_studio_field_icWOZ"/>-->
+                          <!--</td>-->
+                          <!--<td style="border: none;padding:5px 5px" width="300px">-->
+                             <!--<div class="right" style="float: right;white-space: nowrap;">-->
+                                    <!--<span >:موقع الوكالة</span>-->
+                              <!--</div>-->
+                          <!--</td>-->
+                        <!--</tr>-->
+                   <!--</t>-->
+
+                  <!--<t t-if="doc.vehicle.model_id.brand_id.name">-->
+                   <!--<tr style="border: none;">-->
+
+                      <!--<td style="border: none;padding:5px 5px" width="300px">-->
+                         <!--<div class="left" style="float: left;white-space: nowrap;">-->
+                                <!--<span >Car Type: </span>-->
+
+
+                            <!--</div>-->
+                      <!--</td>-->
+                      <!--<td style="border: none;padding:5px 5px" width="800px">-->
+                        <!--<span style="padding-left:5px;" t-esc="doc.vehicle.model_id.brand_id.name"/>-->
+                      <!--</td>-->
+                      <!--<td style="border: none;padding:5px 5px" width="300px">-->
+                         <!--<div class="right" style="float: right;white-space: nowrap;">-->
+                                <!--<span >:نوع السيارة</span>-->
+                          <!--</div>-->
+                          <!--</td>-->
+                    <!--</tr>-->
+                   <!--</t>-->
+
+
+
+                    <!--<t t-if="doc.vehicle.license_plate">-->
+                   <!--<tr style="border: none;">-->
+
+                      <!--<td style="border: none;padding:5px 5px" width="300px">-->
+                          <!--<div class="left" style="float: left;white-space: nowrap;">-->
+                                <!--<span >Plate #:</span>-->
+
+                            <!--</div>-->
+                      <!--</td>-->
+                      <!--<td style="border: none;padding:5px 5px" width="800px">-->
+                        <!--<span style="padding-left:5px;;" t-esc="doc.vehicle.license_plate"/>-->
+                      <!--</td>-->
+                      <!--<td style="border: none;padding:5px 5px" width="300px">-->
+                          <!--<div class="right" style="float: right;white-space: nowrap;">-->
+                                <!--&lt;!&ndash;<span style="font-weight:bold;">Plate # /</span>&ndash;&gt;-->
+                                <!--<span > :رقم اللوحة </span>-->
+                            <!--</div>-->
+                      <!--</td>-->
+                    <!--</tr>-->
+                  <!--</t>-->
+
+                   <!--<t t-if="doc.claim_no">-->
+                   <!--<tr style="border: none;">-->
+
+                      <!--<td style="border: none;padding:5px 5px" width="300px">-->
+                         <!--<div class="left" style="float: left;white-space: nowrap;">-->
+                                <!--<span>  Claim# </span>-->
+                            <!--</div>-->
+
+                      <!--</td>-->
+                      <!--<td style="border: none;padding:5px 5px;" width="800px">-->
+                        <!--<span style="padding-left:5px;" t-esc="doc.claim_no"/>-->
+                      <!--</td>-->
+                      <!--<td style="border: none;padding:5px 5px" width="300px">-->
+                         <!--<div class="right" style="float: right;white-space: nowrap;">-->
+                                 <!--<span >رقم المطالبة  </span>-->
+                            <!--</div>-->
+
+                      <!--</td>-->
+                    <!--</tr>-->
+                   <!--</t>-->
+
+                     <!--<t t-if="doc.service_advisor">-->
+                   <!--<tr style="border: none;">-->
+
+                      <!--<td style="border: none;padding:5px 5px" width="300px">-->
+                         <!--<div class="left" style="float: left;white-space: nowrap;">-->
+                                <!--<span >Service Advisor /</span>-->
+                                <!--&lt;!&ndash;<span style="font-weight:bold;"> اسم المشرف  </span>&ndash;&gt;-->
+                            <!--</div>-->
+                      <!--</td>-->
+                      <!--<td style="border: none;padding:5px 5px" width="800px">-->
+                        <!--<span style="padding-left:5px;" t-esc="doc.service_advisor.name"/>-->
+                      <!--</td>-->
+                      <!--<td style="border: none;padding:5px 5px" width="300px">-->
+                         <!--<div class="right" style="float: right;white-space: nowrap;">-->
+                                <!--&lt;!&ndash;<span style="font-weight:bold;">Service Advisor /</span>&ndash;&gt;-->
+                                <!--<span > اسم المشرف  </span>-->
+                            <!--</div>-->
+                      <!--</td>-->
+                    <!--</tr>-->
+                     <!--</t>-->
+                      <!--<t t-if="doc.x_studio_agency_job_card">-->
+                           <!--<tr style="border: none;">-->
+        <!-- -->
+                              <!--<td style="border: none;padding:5px 5px" width="300px">-->
+                                <!--<div class="left" style="float: left;white-space: nowrap;">-->
+                                        <!--<span style="font-weight:bold;">Job Card: </span>-->
+        <!-- -->
+                                    <!--</div>-->
+                              <!--</td>-->
+                              <!--<td style="border: none;padding:5px 5px" width="800px">-->
+                                <!--<span style="padding-left:5px;font-weight:bold;" t-esc="doc.x_studio_agency_job_card"/>-->
+                              <!--</td>-->
+                              <!--<td style="border: none;padding:5px 5px" width="300px">-->
+                                 <!--<div class="right" style="float: right;white-space: nowrap;">-->
+                                        <!--&lt;!&ndash;<span style="font-weight:bold;">Service Advisor /</span>&ndash;&gt;-->
+                                        <!--<span style="font-weight:bold;"> :رقم كرت عمل الوكالة   </span>-->
+                                    <!--</div>-->
+                              <!--</td>-->
+                            <!--</tr>-->
+                      <!--</t>-->
+            <!--</table>-->
+
+            </xpath>
+
         <xpath expr="//div[@name='signature']" position="after">
             <img style="width:15%;height:100px;float:right;" src="/alloy_crm_lost_reason/static/src/img/index_alloy.jpeg" />
+
+
+            <p style="font-family: arial;font-size: 9pt;color:black;text-align:center;">
+                    يتم إنشاء هذه الفاتورة تلقائيا في نظامنا و يجب اعتبارها فاتورة اصلية
+            </p>
+            <p  style="font-family: arial;font-size: 9pt;color:black;text-align:center;">
+                This invoice is automatically generated in our system and should be considered as an original
+            </p>
         </xpath>
     </template>
 
